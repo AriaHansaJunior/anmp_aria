@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/studentListFragment">
+
+    <fragment
+        android:id="@+id/studentListFragment"
+        android:name="com.project.studentproject.view.StudentListFragment"
+        android:label="StudentList">
+
+        <action
+            android:id="@+id/actionStudentDetail"
+            app:destination="@id/studentDetailFragment">
+
+            <argument
+                android:name="student"
+                app:argType="com.project.studentproject.model.Student" />
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/studentDetailFragment"
+        android:name="com.project.studentproject.view.StudentDetailFragment"
+        android:label="StudentDetail">
+
+        <argument
+            android:name="student"
+            app:argType="com.project.studentproject.model.Student" />
+    </fragment>
+
+</navigation>
