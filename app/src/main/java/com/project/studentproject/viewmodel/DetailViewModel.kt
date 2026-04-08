@@ -1,12 +1,21 @@
 package com.project.studentproject.viewmodel
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.android.volley.RequestQueue
+import com.android.volley.toolbox.Volley
 import com.project.studentproject.model.Student
 
-class DetailViewModel: ViewModel() {
+class DetailViewModel(application: Application): AndroidViewModel(application) {
     val studentLD = MutableLiveData<Student>()
+    val TAG: String = "VolleyTag"
+    var queue: RequestQueue?=null
+
     fun fetch(id: String) {
+        queue = Volley.newRequestQueue(getApplication())
+        val url = "https://www.jsonkeeper.com/b/LLMH"
         val list = arrayListOf(
             Student("16055","Nonie","1998/03/28","5718444778",
                 "http://dummyimage.com/75x100.jpg/cc0000/ffffff"),
